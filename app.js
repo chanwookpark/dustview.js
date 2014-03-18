@@ -15,24 +15,13 @@ http.createServer(function(request, response) {
 	if("/hello" === pathName) {
 		handler = "/hello";
 		response.write("Hello!");
-	} else if("/dust" === pathName) {
-		handler = "/dust";
+	} else if("/dust1" === pathName) {
+		handler = "/dust1";
 		var templateKey = "testkey";
-		var source = "Hello! Dust~";
+		var source = "Hello! Dust First~";
+		var model = "";
 
-		var compiledSource = dust.compile(source, templateKey);
-		dust.loadSource(compiledSource);
-		dust.render(templateKey, "", 
-			function(_err, _out){
-				if(_out) {
-					response.write(_out); 
-					console.log("3. Rendering success: " + _out);
-				}
-				if(_err) {
-					console.log("3. Rendering error: " + _err); 
-				}
-			}
-		);
+		dustview.render(templateKey, source, model, response);
 	}
 	console.log("2. route to " + handler);
 
