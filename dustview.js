@@ -1,7 +1,12 @@
 var dust = require("dustjs-linkedin");
+var fs = require('fs');
 
 function render(_templateKey, _source, _model, _res) {
-	var compiledSource = dust.compile(_source, _templateKey);
+	var tmeplate = new String(_source);
+	if(_source.indexOf('.') === 0 || _source.indexOf('/') === 0) {
+		tmeplate = fs.readFileSync(_source).toString();		
+	}
+	var compiledSource = dust.compile(tmeplate, _templateKey);
 
 	dust.loadSource(compiledSource);
 
