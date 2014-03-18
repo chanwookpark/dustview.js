@@ -1,7 +1,6 @@
-var dust = require("dustjs-linkedin");
 var http = require("http");
 var url = require("url");
-var dustview = require("./dustview")
+var dustview = require("../dustview")
 
 http.createServer(function(request, response) {
 
@@ -35,7 +34,7 @@ http.createServer(function(request, response) {
 		/* Case 3. Load model json from file  */
 		handler = "/dust3";
 		templateKey = "dust3";
-		source = "./sample/template/sample1.html";
+		source = "./template/sample1.html";
 		model = new String("{\"name\":\"chanwook\"}");
 	}
 

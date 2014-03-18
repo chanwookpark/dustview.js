@@ -3,6 +3,7 @@ var fs = require('fs');
 
 function render(_templateKey, _source, _model, _res) {
 	var tmeplate = new String(_source);
+	//TODO 상대경로는 어떻게 찾아낼 것인가? 
 	if(_source.indexOf('.') === 0 || _source.indexOf('/') === 0) {
 		tmeplate = fs.readFileSync(_source).toString();		
 	}
