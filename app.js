@@ -11,24 +11,30 @@ http.createServer(function(request, response) {
 	var pathName = url.parse(request.url).pathname;
 	console.log("1. request for" + pathName + ".");
 
+	// controller 구현
 	var handler = "";
+	var templateKey = "";
+	var source = "";
+	var model = "";
 	if("/hello" === pathName) {
 		handler = "/hello";
 		response.write("Hello!");
 	} else if("/dust1" === pathName) {
 		handler = "/dust1";
-		var templateKey = "testkey";
-		var source = "Hello! Dust First~";
-		var model = "";
+		templateKey = "dust1";
+		source = "Hello! Dust First~!";
 
-		dustview.render(templateKey, source, model, response);
+	} else if("/dust2" === pathName) {
+		handler = "/dust2";
+		templateKey = "dust2";
+		source = "Hello! Dust Second with {name}!"
+		model = new String("{\"name\":\"chanwook\"}");
+
 	}
 	console.log("2. route to " + handler);
+
+	dustview.render(templateKey, source, model, response);
 
 	response.end();
 
 }).listen(9030);
-
-// controller 구현
-
-// dustview 구현 (일단 하드코딩한다!)
