@@ -1,0 +1,13 @@
+{
+  "name": "dustview",
+  "description": "view extension with dust.js",
+  "version": "1.0.0",
+  "author": "chanwook",
+  "engines": { "node": ">= 0.4.0" },
+  "private": true,
+  "main": "dustview",
+  "dependencies": {
+    "express": "3.x",
+    "dustjs-linkedin": "2.3.x"
+  }
+}

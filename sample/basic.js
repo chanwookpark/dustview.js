@@ -1,6 +1,6 @@
 var http = require("http");
 var url = require("url");
-var dustview = require("../dustview")
+var dustview = require("dustview")
 
 http.createServer(function(request, response) {
 
@@ -34,13 +34,13 @@ http.createServer(function(request, response) {
 		/* Case 3. Load model json from file  */
 		handler = "/dust3";
 		templateKey = "dust3";
-		source = "./template/sample1.html";
+		source = "./views/sample1.html";
 		model = new String("{\"name\":\"chanwook\"}");
 	}
 
 	console.log("2. route to " + handler);
 
-	dustview.render(templateKey, source, model, response);
+	dustview.drender(templateKey, source, model, response);
 
 	response.end();
 
